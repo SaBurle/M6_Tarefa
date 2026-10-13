@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Adivinhação</title>
+    <link rel="stylesheet" href="styleJogo.css">
+</head>
+<body>
+    <main>
+        <h1>Jogo da <span>Adivinhação</span> 🦆</h1>
+        <p class="subtitulo">Descubra o número escondido entre 1 e 100 antes que as tentativas acabem.</p>
+
+        <ol>
+            <li>Quantas tentativas você quer?
+                <p>Escolha de 1 a 15.</p>
+                <form onsubmit="iniciarJogo(); return false;">
+                    <input id="tentativas" type="number" min="1" max="15" placeholder="Número de tentativas (1 a 15)" oninput="validarTentativas()"/>
+                    <p id="avisoTentativas" class="aviso">Selecione o número de tentativas (de 1 a 15).</p>
+                    <div id="areaIniciar" title="Selecione o número de tentativas">
+                        <button id="botaoIniciar" type="submit" disabled>Iniciar jogo</button>
+                    </div>
+                </form>
+            </li>
+            <li id="cartaoChute" hidden>Qual seu chute?
+                <form onsubmit="chutar(); return false;">
+                    <input id="chute" type="number" placeholder="Digite um número de 1 a 100"/>
+                    <button id="botaoChutar" type="submit">Chutar</button>
+                </form>
+                <p id="restantes" class="restantes"></p>
+                <p id="mensagem" class="mensagem"></p>
+                <button id="botaoNovoJogo" type="button" onclick="jogarDeNovo()" hidden>Jogar de novo</button>
+            </li>
+            <li id="cartaoLista" hidden>Suas tentativas
+                <pre id="listaTentativas">Nenhum chute ainda.</pre>
+            </li>
+        </ol>
+    </main>
+
+    <script src="scriptJogo.js"></script>
+</body>
+</html>
